@@ -12,116 +12,55 @@
 #define MSJ_SAL_COMB_TOT "Combustible total consumidos (l)"
 #define MSJ_SAL_COST_TOT "Costo total de su vehiculo ($) "
 #define MSJ_ERROR "ERROR"
-/*#define
-#define
-#define
-#define
-#define
-#define
-#define
-#define
-#define*/
+
 
 
 int main()
-{ 	float KM,PRE,GAS,rend;
-	float PROM=0,MEJ=100000,PEOR=0,DIST=0,COMB=0,COST=0,LITROS=0;
-	int R=0,i=0;
+{ 	
+	float km,precio,gasto,rendimiento;
+	float promedio=0,mejor=100000,peor=0,distancia=0,combustible=0,costo=0,litros=0;
+	int rendtot=0,i=0;
 
-while(KM!=-1)	{
+while(km!=-1)	{
 
 	printf("%s",MSJ_ENT_KM );
-	if(scanf("%f",&KM)!=1){
+	if(scanf("%f",&km)!=1){
 		fprintf(stderr, "%s\n",MSJ_ERROR );
 		return EXIT_FAILURE;
 	}
-if (KM == -1){ break;}
+if (km == -1){ break;}
 
 	printf("%s",MSJ_ENT_PRE );
-	if(scanf("%f",&PRE)!=1){
+	if(scanf("%f",&precio)!=1){
 		fprintf(stderr, "%s\n",MSJ_ERROR );
 		return EXIT_FAILURE;
 	}
 	printf("%s",MSJ_ENT_GAS );
-	if(scanf("%f",&GAS)!=1){
+	if(scanf("%f",&gasto)!=1){
 		fprintf(stderr, "%s\n",MSJ_ERROR );
 		return EXIT_FAILURE;
 	}
-	rend = (GAS/PRE)/KM *100;
-	printf("%s >> %.2f\n",MSJ_SAL_REND, rend );
-	R+=rend;
-	if (rend<MEJ){ MEJ=rend;}
-	if (rend>PEOR){ PEOR=rend;}
-	DIST+=KM;
-	COMB+=(GAS/PRE);
-	COST+=GAS;
-	LITROS+=(GAS/PRE);
+
+	rendimiento = (gasto/precio)/km *100;
+	printf("%s >> %.2f\n",MSJ_SAL_REND, rendimiento );
+	rendtot+=rendimiento;
+	if (rendimiento<mejor){ mejor=rendimiento;}
+	if (rendimiento>peor){ peor=rendimiento;}
+	distancia+=km;
+	combustible+=(gasto/precio);
+	costo+=gasto;
+	litros+=(gasto/precio);
 	i++;
 }
-	PROM=DIST/LITROS;
+	promedio=distancia/litros;
 
-
-
-
-		printf("%-s >> %.4f\n",MSJ_SAL_REND_PROM, PROM );
-		printf("%-s >> %.2f\n",MSJ_SAL_REND_MEJ, MEJ );
-		printf("%-s >> %.2f\n",MSJ_SAL_REND_PEOR, PEOR );
-		printf("%-s >> %.2f\n",MSJ_SAL_DIST_TOT, DIST );
-		printf("%-s >> %.2f\n",MSJ_SAL_COMB_TOT, COMB);
-		printf("%-s >> %.2f\n",MSJ_SAL_COST_TOT, COST );
-
-
+		printf("%-s >> %.4f\n",MSJ_SAL_REND_PROM, promedio );
+		printf("%-s >> %.2f\n",MSJ_SAL_REND_MEJ, mejor );
+		printf("%-s >> %.2f\n",MSJ_SAL_REND_PEOR, peor );
+		printf("%-s >> %.2f\n",MSJ_SAL_DIST_TOT, distancia );
+		printf("%-s >> %.2f\n",MSJ_SAL_COMB_TOT, combustible);
+		printf("%-s >> %.2f\n",MSJ_SAL_COST_TOT, costo );
 
 return EXIT_SUCCESS;
 }
 
-/*int main()
-{ 	float KM,PRE,GAS,rend;
-	float PROM=0,MEJ=100000,PEOR=0,DIST=0,COMB=0,COST=0;
-	int R=0,i=0;
-
-while(KM!=-1)	{
-
-	printf("%s",MSJ_ENT_KM );
-	if(scanf("%f",&KM)!=1){
-		fprintf(stderr, "%s\n",MSJ_ERROR );
-		return EXIT_FAILURE;
-	}
-if (KM == -1){ break;}
-
-	printf("%s",MSJ_ENT_PRE );
-	if(scanf("%f",&PRE)!=1){
-		fprintf(stderr, "%s\n",MSJ_ERROR );
-		return EXIT_FAILURE;
-	}
-	printf("%s",MSJ_ENT_GAS );
-	if(scanf("%f",&GAS)!=1){
-		fprintf(stderr, "%s\n",MSJ_ERROR );
-		return EXIT_FAILURE;
-	}
-	rend = (GAS/PRE)/KM *100;
-	printf("%s >> %.2f\n",MSJ_SAL_REND, rend );
-	R+=rend;
-	if (rend<MEJ){ MEJ=rend;}
-	if (rend>PEOR){ PEOR=rend;}
-	DIST+=KM;
-	COMB+=(GAS/PRE);
-	COST+=GAS;
-	i++;
-}
-	PROM=R/i;
-
-
-
-
-		printf("%-s >> %.2f\n",MSJ_SAL_REND_PROM, PROM );
-		printf("%-s >> %.2f\n",MSJ_SAL_REND_MEJ, MEJ );
-		printf("%-s >> %.2f\n",MSJ_SAL_REND_PEOR, PEOR );
-		printf("%-s >> %.2f\n",MSJ_SAL_DIST_TOT, DIST );
-		printf("%-s >> %.2f\n",MSJ_SAL_COMB_TOT, COMB);
-		printf("%-s >> %.2f\n",MSJ_SAL_COST_TOT, COST );
-
-
-
-return EXIT_SUCCESS;
-}*/

@@ -10,25 +10,25 @@
 #define MSJ_JUEVES "El día será jueves"
 #define MSJ_VIERNES "El día será viernes"
 #define MSJ_ERROR "No es un día del año"
-#define primerdia 1
-#define ultimodia 366
+#define PRIMERDIA 1
+#define ULTIMODIA 366
 
 
 
 int main(void)
 {
-	int DIA,A,P,U;
-	P=primerdia;
-	U=ultimodia;
+	int dia;
+
 	printf("%s\n",MSJ_ENTRADA );
-	if(scanf("%d", &DIA)!=1){
+	if(scanf("%d", &dia)!=1){
 		fprintf(stderr, "%s\n",MSJ_ERROR );
 		return EXIT_FAILURE;
 	}
-if (P <= DIA && DIA <= U)
-{
-	A = DIA % 7;
-	switch (A){
+if (PRIMERDIA <= dia && dia <= ULTIMODIA)
+	{
+	dia = dia % 7;
+
+	switch (dia){
 		case(0):
 			printf("%s\n", MSJ_SABADO);
 			break;
@@ -57,8 +57,6 @@ if (P <= DIA && DIA <= U)
 else
 	{ 
 	fprintf(stderr, "%s\n", MSJ_ERROR);
-
-
 	}
 
 	return EXIT_SUCCESS;

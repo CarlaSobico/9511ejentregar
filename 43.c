@@ -17,9 +17,9 @@
 
 int main(void)
 { 	
-	float km,precio,gasto,rendimiento;
-	float promedio=0,mejorrendimiento=0,peorrendimiento=0,distancia=0,combustible=0,costo=0,/*litros=0*/;
-	int rendtot=0,i=0;
+	float km, precio, gasto, rendimiento;
+	float promedio=0, mejorrendimiento=0, peorrendimiento=0, distancia=0, combustible=0, costo=0,/*litros=0*/;
+	int rendtot=0, i=0;
 
 	while(km!=-1)
 	{
@@ -27,7 +27,7 @@ int main(void)
 		printf("%s",MSJ_ENT_KM );
 		if(scanf("%f",&km)!=1 || km<-1 /*verificar si funciona mejor con km<-1 || km<0 || km>-1*/)
 		{
-			fprintf(stderr, "%s\n",MSJ_ERROR );
+			fprintf(stderr, "%s\n", MSJ_ERROR );
 			return EXIT_FAILURE;
 		}
 		if (km == -1)
@@ -38,18 +38,18 @@ int main(void)
 		printf("%s",MSJ_ENT_PRE );
 		if(scanf("%f",&precio)!=1 || precio<0)
 		{
-			fprintf(stderr, "%s\n",MSJ_ERROR );
+			fprintf(stderr, "%s\n", MSJ_ERROR );
 			return EXIT_FAILURE;
 		}
 		printf("%s",MSJ_ENT_GAS );
 		if(scanf("%f",&gasto)!=1 || gasto<0)
 		{
-			fprintf(stderr, "%s\n",MSJ_ERROR );
+			fprintf(stderr, "%s\n", MSJ_ERROR );
 			return EXIT_FAILURE;
 		}
 
-		rendimiento = (gasto/precio)/km *100;
-		printf("%s >> %.2f\n",MSJ_SAL_REND, rendimiento );
+		rendimiento = (gasto/precio)/km * 100;
+		printf("%s >> %.2f\n", MSJ_SAL_REND, rendimiento );
 		rendtot+=rendimiento;
 		while (i=0)
 		{
@@ -58,7 +58,7 @@ int main(void)
 		}
 		if (rendimiento<mejorrendimiento)
 		{ 
-			mejorendimientor=rendimiento;
+			mejorrendimiento=rendimiento;
 		}
 		if (rendimiento>peorrendimiento)
 		{ 
@@ -74,12 +74,12 @@ int main(void)
 		/*promedio=litros/distancia * 100;*/
 		promedio=combustible/distancia * 100;
 	
-	printf("%-s >> %.4f\n",MSJ_SAL_REND_PROM, promedio );
-	printf("%-s >> %.2f\n",MSJ_SAL_REND_MEJ, mejorrendimiento );
-	printf("%-s >> %.2f\n",MSJ_SAL_REND_PEOR, peorrendimiento );
-	printf("%-s >> %.2f\n",MSJ_SAL_DIST_TOT, distancia );
-	printf("%-s >> %.2f\n",MSJ_SAL_COMB_TOT, combustible);
-	printf("%-s >> %.2f\n",MSJ_SAL_COST_TOT, costo );
+	printf("%-s >> %.4f\n", MSJ_SAL_REND_PROM, promedio );
+	printf("%-s >> %.2f\n", MSJ_SAL_REND_MEJ, mejorrendimiento );
+	printf("%-s >> %.2f\n", MSJ_SAL_REND_PEOR, peorrendimiento );
+	printf("%-s >> %.2f\n", MSJ_SAL_DIST_TOT, distancia );
+	printf("%-s >> %.2f\n", MSJ_SAL_COMB_TOT, combustible);
+	printf("%-s >> %.2f\n", MSJ_SAL_COST_TOT, costo );
 
 return EXIT_SUCCESS;
 }

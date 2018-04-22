@@ -5,6 +5,9 @@
 
 #define MSJ_FUERA_DE_RANGO "El dato ingresado no se encuentra"
 #define MSJ_ERROR "ERROR"
+#define MSJ_PROB_A "La probabilidad A es"
+#define MSJ_PROB_B "La probabilidad B es"
+
 
 /**************************probabilia a***************************/
 int probabilidad_a (void){
@@ -27,7 +30,7 @@ int probabilidad_a (void){
 int probabilidad_b (void){
 	float a;
 	srand (time (NULL));	
-	a=(float) rand()/RAND_MAX; printf("%f\n", a);
+	a=(float) rand()/RAND_MAX;
 	if (0<a && a<=0.1){
 		return 3;
 	}
@@ -137,10 +140,14 @@ int imprimir_dado (int c){
 		default:
 			fprintf(stderr, "%s\n", MSJ_FUERA_DE_RANGO);
 			break;
-
 	}
 	return EXIT_SUCCESS;
-
 }
 
-
+int main (void){
+	printf("%s %i\n",MSJ_PROB_A , probabilidad_a() );
+	printf("%s %i\n",MSJ_PROB_B , probabilidad_b() );
+	imprimir_moneda();
+	imprimir_dado(tirar_dado() ) ;
+	return 0;
+}

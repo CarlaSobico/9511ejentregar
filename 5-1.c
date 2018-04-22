@@ -5,6 +5,7 @@
 
 #define CANT 5
 #define MSJ_ERROR "ERROR"
+#define MSJ_INGRESO "Ingrese la cantidad de segundos que quiere convertir a hora"
 
 typedef enum{
 	ST_OK,
@@ -14,13 +15,25 @@ typedef enum{
 status_t convertir (int segundos);
 
 int main(void){
-	srand (time (NULL));
-	convertir(rand() );
+	/*srand (time (NULL));
+	convertir(rand() );*/
+	int c;
+	int segundos;
+	printf("%s\n", MSJ_INGRESO);
+	if(scanf("%i", &segundos)!=1){
+			fprintf(stderr, "%s\n", MSJ_ERROR );
+			return EXIT_FAILURE;
+		} 
+	while ((c=getchar())!='\n' && c!= EOF);
+	convertir (segundos);
 	return 0;
 }
 
 status_t convertir (int segundos){
-	int seg=0, min=0, hor=0;
+	int seg, min, hor;
+	seg=0;
+	min=0;
+	hor=0;
 	if ( segundos<0 ){
 		fprintf(stderr, "%s\n", MSJ_ERROR);
 		return ST_NO_OK;

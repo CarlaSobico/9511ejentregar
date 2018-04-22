@@ -25,13 +25,10 @@ typedef enum {
 
 
 int main(void){
-
 	espectral_t clase;
-
-	int temp=0, c;
-
+	int c;
+	temp=0;
 	printf("%s\n", MSJ_INGRESO);
-
 	if(scanf("%i", &temp)!=1){
 			fprintf(stderr, "%s\n", MSJ_ERROR );
 			return EXIT_FAILURE;
